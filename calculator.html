@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--пр-->
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculator</title>
+		<link rel="stylesheet" href="index.css" />
+		<!-- Подключаем CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<!-- Подключаем Font Awesome -->
+		<style>
+			.calculator {
+				width: 200px; /* Ширина калькулятора */
+				margin: 50px auto; /* Центрируем калькулятор */
+				display: grid; /* Используем сетку */
+				grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+				grid-gap: 10px; /* Пробел между кнопками */
+			}
+
+			button {
+				height: 50px; /* Высота кнопок */
+				font-size: 24px; /* Размер шрифта */
+				cursor: pointer; /* Курсор при наведении */
+			}
+
+			.division {
+				grid-column-start: 4; /* Кнопка деления рядом с 9 */
+				grid-column-end: 5;
+			}
+
+			.operations {
+				grid-column-start: 3; /* Кнопка = рядом с . */
+				grid-column-end: 4;
+			}
+
+			/* Стили для темы */
+			body.light-mode {
+				background-color: #ffffff;
+				color: #000000;
+			}
+
+			body.dark-mode {
+				background-color: #000000;
+				color: #ffffff;
+			}
+
+			/* Стили для кнопок темы */
+			#theme-toggle {
+				position: fixed;
+				bottom: 10px;
+				right: 20px;
+				font-size: 24px;
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			/* Цвет иконки для тёмного и светлого режимов */
+			body.light-mode #theme-toggle i {
+				color: #000000; /* Чёрная иконка на светлом фоне */
+			}
+
+			body.dark-mode #theme-toggle i {
+				color: #ffffff; /* Белая иконка на тёмном фоне */
+			}
+
+			body.light-mode {
+				background-color: #ffffff;
+				color: #000000;
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+
+			body.dark-mode {
+				background-color: #000000;
+				color: #ffffff;
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+		</style>
+	</head>
+	<body class="light-mode">
+		<!--Устанавливаем начальный режим-->
+
+		<div class="display" id="display">0</div>
+		<!-- Дисплей для отображения чисел и результата -->
+
+		<div class="calculator">
+			<button class="button">7</button>
+			<button class="button">8</button>
+			<button class="button">9</button>
+			<button class="button division">/</button>
+			<!-- Кнопка деления -->
+
+			<button class="button">4</button>
+			<button class="button">5</button>
+			<button class="button">6</button>
+			<button class="button">*</button>
+
+			<button class="button">1</button>
+			<button class="button">2</button>
+			<button class="button">3</button>
+			<button class="button">-</button>
+
+			<button class="button">0</button>
+			<button class="button">C</button>
+			<button class="button operations">=</button>
+			<!-- Кнопка равенства -->
+			<button class="button">+</button>
+		</div>
+
+		<button id="theme-toggle">
+			<i class="fas fa-sun"></i>
+		</button>
+
+		<!-- Подключаем JavaScript -->
+		<script>
+			const toggleButton = document.getElementById('theme-toggle')
+			const icon = toggleButton.querySelector('i')
+
+			toggleButton.addEventListener('click', () => {
+				document.body.classList.toggle('dark-mode')
+				document.body.classList.toggle('light-mode')
+
+				// Переключаем иконку в зависимости от текущего режима
+				if (document.body.classList.contains('dark-mode')) {
+					icon.classList.remove('fa-sun')
+					icon.classList.add('fa-moon')
+				} else {
+					icon.classList.remove('fa-moon')
+					icon.classList.add('fa-sun')
+				}
+			})
+		</script>
+
+		<script src="main.js"></script>
+		<!-- Подключаем JS -->
+	</body>
+</html>
