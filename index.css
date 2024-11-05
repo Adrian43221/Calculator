@@ -1,0 +1,54 @@
+
+.calculator {
+   width: 100px;
+   height: 115px; 
+   margin: 50px auto;
+   display: grid; 
+   grid-template-columns: repeat(4, 1fr); 
+   grid-gap: 10px; 
+   
+}
+
+.display {
+   width: 100%;         /* Убираем фиксированную ширину, чтобы адаптироваться к родителю */
+   margin: 0;           /* Убираем автоматические отступы, так как они не нужны внутри сетки */
+   text-align: center;   /* Выравнивание текста вправо для дисплея */
+   padding: 10px;       /* Добавляем внутренние отступы */
+   font-size: 24px;     /* Увеличиваем размер шрифта для удобочитаемости */
+}
+
+.button {
+   width: 100%; 
+   height: 40px; 
+   text-align: center;
+}
+
+.operations {
+   grid-column-start: 3; 
+   grid-column-end: 4; 
+}
+
+.division {
+   grid-column-start: 4; 
+   grid-column-end: 5; 
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 10px;  /* Отступ от верхнего края */
+    right: 10px; /* Отступ от правого края */
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Переход для body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Переход для кнопки */
+#theme-toggle {
+    transition: color 0.3s ease;
+}
